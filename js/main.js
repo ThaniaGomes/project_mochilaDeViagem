@@ -1,4 +1,5 @@
 const form = document.getElementById("novoItem")
+const lista = document.getElementById("lista")
 
 form.addEventListener("submit", (evento)=> {
     evento.preventDefault()
@@ -18,5 +19,5 @@ function criaElemento(nome, quantidade){
     novoIten.appendChild = numeroItem + nome //inserie um elemento criado dentro do outro
     novoIten.innerHTML += nome // acresentar o nome do objeto ao inner
 
-    console.log(numeroItem)
+    lista.appendChild(novoIten)
 }
