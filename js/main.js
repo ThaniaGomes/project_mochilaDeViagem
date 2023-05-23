@@ -3,12 +3,12 @@ const lista = document.getElementById("lista")
 
 form.addEventListener("submit", (evento)=> {
 
-    evento.preventDefault()
+    evento.preventDefault() //parar comportamento padrão do site para n voltar dados para propria pag.
 
-    const nome = evento.target.elements['nome']
-    const quantidade = evento.target.elements['quantidade']
+    const nome = evento.target.elements['nome'] //chamar o elemento
+    const quantidade = evento.target.elements['quantidade'] //--
 
-    criaElemento(nome.value, quantidade.value)
+    criaElemento(nome.value, quantidade.value) //acessar o elemento
 
     nome.value = "" //limpa formulario
     quantidade.value = "" //--
