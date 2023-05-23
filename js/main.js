@@ -1,5 +1,6 @@
 const form = document.getElementById("novoItem")
 const lista = document.getElementById("lista")
+const itens = []
 
 form.addEventListener("submit", (evento)=> {
 
@@ -28,6 +29,15 @@ function criaElemento(nome, quantidade){
 
     lista.appendChild(novoIten)
 
-    localStorage.setItem("nome", nome) //salvar info no local storage apenas 1 item
-    localStorage.setItem("quantidade", quantidade) // --
+    const itemAtual = {
+        "nome": nome,
+        "quantidade": quantidade
+    } //criaçao de cada novo item
+
+    itens.push(itemAtual) //inserir o item atual dentro do array itens
+
+    localStorage.setItem("item", JSON.stringify(itens)) 
+    //salvar objeto transformado em string pelo json dentro do localStorage (array)
+    //{"nome":"camisa","quantidade":"1"}
+
 }
