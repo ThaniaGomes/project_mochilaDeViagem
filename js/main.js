@@ -1,6 +1,12 @@
 const form = document.getElementById("novoItem")
 const lista = document.getElementById("lista")
-const itens = []
+const itens = JSON.parse(localStorage.getItem("itens")) || [] 
+// ver se tem algo la no LS caso tenho pegar caso nao tenho retornar um array vazio
+//json parse usado pra transformar devolta em array que transformamos em string pro lS receber
+
+itens.forEach ((elemento) => {
+    console.log(elemento.nome, elemento.quantidade)
+})
 
 form.addEventListener("submit", (evento)=> {
 
@@ -36,7 +42,7 @@ function criaElemento(nome, quantidade){
 
     itens.push(itemAtual) //inserir o item atual dentro do array itens
 
-    localStorage.setItem("item", JSON.stringify(itens)) 
+    localStorage.setItem("itens", JSON.stringify(itens)) 
     //salvar objeto transformado em string pelo json dentro do localStorage (array)
     //{"nome":"camisa","quantidade":"1"}
 
