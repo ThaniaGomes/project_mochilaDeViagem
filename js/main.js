@@ -2,12 +2,16 @@ const form = document.getElementById("novoItem")
 const lista = document.getElementById("lista")
 
 form.addEventListener("submit", (evento)=> {
+
     evento.preventDefault()
 
-    criaElemento(evento.target.elements['nome'].value, evento.target.elements['quantidade'].value)
+    const nome = evento.target.elements['nome']
+    const quantidade = evento.target.elements['quantidade']
 
-    evento.target.elements['nome'].value = ""
-    evento.target.elements['quantidade'].value = ""
+    criaElemento(nome.value, quantidade.value)
+
+    nome.value = "" //limpa formulario
+    quantidade.value = "" //--
 })
 
 function criaElemento(nome, quantidade){ 
@@ -19,8 +23,11 @@ function criaElemento(nome, quantidade){
     const numeroItem = document.createElement("strong") // add strong com valor
 
     numeroItem.innerHTML = quantidade // para o html receber a quantidade
-    novoIten.appendChild(numeroItem) //inserie um elemento criado dentro do outro
+    novoIten.appendChild(numeroItem) //inserie um elemento criado dentro do outro responsavel pela bolinha com cor
     novoIten.innerHTML += nome // acresentar o nome do objeto ao inner
 
     lista.appendChild(novoIten)
+
+    localStorage.setItem("nome", nome) //salvar info no local storage apenas 1 item
+    localStorage.setItem("quantidade", quantidade) // --
 }
