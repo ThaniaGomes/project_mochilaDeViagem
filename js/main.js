@@ -50,7 +50,7 @@ function criaElemento(item) {
     
     novoItem.innerHTML += item.nome
 
-    novoItem.appendChild(botaoDeleta()) //adicionar a funcao como filho do elemento
+    novoItem.appendChild(botaoDeleta(item.id)) //adicionar a funcao como filho do elemento
     lista.appendChild(novoItem)
 }
 
@@ -58,16 +58,23 @@ function atualizaElemento(item) {
     document.querySelector("[data-id='"+item.id+"']").innerHTML = item.quantidade
 }
 
-function botaoDeleta(){
+function botaoDeleta(id){
     const elementoBotao = document.createElement("button") //criar botao
     elementoBotao.innerText = "X" // vai receber um x
 
     elementoBotao.addEventListener("click", function(){ // responsavel por ouvir o click
-        deletaElemento(this.parentNode) // responsavel por identificar o elemento clicado e passar pai dele pra funcao
+        deletaElemento(this.parentNode, id) // responsavel por identificar o elemento clicado e passar pai dele pra funcao
     })
     return elementoBotao
 }
 
-function deletaElemento(tag){ //funcao que vai deletar o elemento pai
+function deletaElemento(tag, id){ //funcao que vai deletar o elemento pai
     tag.remove()
+
+    itens.splice(itens.findIndex(elemento => elemento === id), 1) 
+    //procurar um elemento dentro do array pra deletar
+    //eu acho o elemento onde o id é igual ao id que eu acabei de clicar para remover, e o deleto. 
+
+    localStorage.setItem("itens", JSON.stringify(itens))
+    //para atualizar o local storage.
 }
