@@ -13,7 +13,8 @@ Você pode clonar o projeto e rodá-lo localmente seguindo os passos abaixo
 2. Abrir o arquivo index.html no navegador.
 
 ou acessar site: 
-(versel em breve)
+project-mochila-de-viagem-505q6myra-thaniagomes.vercel.app
+
 ### Explicação:
 
 •	trabalhar e armazenar dados no navegador;
