@@ -1,6 +1,6 @@
 # JavaScript Site Mochila De Viagem
 
-## ★ **JavaScript: Consumindo e tratando dados de uma API** ★
+## ★ **JavaScript: Armazenando dados - LocalStorage** ★
 
 ### Pré visualizção do projeto:
 
