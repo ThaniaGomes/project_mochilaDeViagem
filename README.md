@@ -4,7 +4,7 @@
 
 ### Pré visualizção do projeto:
 
-![Alt text](../../../3.png)
+![3](https://github.com/ThaniaGomes/project_mochilaDeViagem/assets/79340835/3f1a6e7d-35da-4876-ae68-606d8d81c9d2)
 
 ### Como rodar o projeto:
 Você pode clonar o projeto e rodá-lo localmente seguindo os passos abaixo
