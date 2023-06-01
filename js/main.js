@@ -25,10 +25,8 @@ form.addEventListener("submit", (evento) => {
         atualizaElemento(itemAtual)
 
         itens[itens.findIndex(elemento => elemento.id === existe.id)] = itemAtual
-        //garantindo que esta pegando elemento correto e o atualizando
     } else {
-        itemAtual.id = itens[itens.length -1] ? (itens[itens.length -1]).id +1 : 0 
-        //se nao tiver nada no array id igual 0 se ja tiver algo no id ultimo elemento o id +1
+        itemAtual.id = itens[itens.length -1] ? (itens[itens.length-1]).id + 1 : 0;
 
         criaElemento(itemAtual)
 
@@ -52,7 +50,8 @@ function criaElemento(item) {
     
     novoItem.innerHTML += item.nome
 
-    novoItem.appendChild(botaoDeleta(item.id)) //adicionar a funcao como filho do elemento
+    novoItem.appendChild(botaoDeleta(item.id))
+
     lista.appendChild(novoItem)
 }
 
@@ -60,23 +59,21 @@ function atualizaElemento(item) {
     document.querySelector("[data-id='"+item.id+"']").innerHTML = item.quantidade
 }
 
-function botaoDeleta(id){
-    const elementoBotao = document.createElement("button") //criar botao
-    elementoBotao.innerText = "X" // vai receber um x
+function botaoDeleta(id) {
+    const elementoBotao = document.createElement("button")
+    elementoBotao.innerText = "X"
 
-    elementoBotao.addEventListener("click", function(){ // responsavel por ouvir o click
-        deletaElemento(this.parentNode, id) // responsavel por identificar o elemento clicado e passar pai dele pra funcao
+    elementoBotao.addEventListener("click", function() {
+        deletaElemento(this.parentNode, id)
     })
+
     return elementoBotao
 }
 
-function deletaElemento(tag, id){ //funcao que vai deletar o elemento pai
+function deletaElemento(tag, id) {
     tag.remove()
 
-    itens.splice(itens.findIndex(elemento => elemento === id), 1) 
-    //procurar um elemento dentro do array pra deletar
-    //eu acho o elemento onde o id é igual ao id que eu acabei de clicar para remover, e o deleto. 
+    itens.splice(itens.findIndex(elemento => elemento.id === id), 1)
 
     localStorage.setItem("itens", JSON.stringify(itens))
-    //para atualizar o local storage.
 }
