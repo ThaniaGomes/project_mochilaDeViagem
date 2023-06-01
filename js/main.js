@@ -24,9 +24,11 @@ form.addEventListener("submit", (evento) => {
         
         atualizaElemento(itemAtual)
 
-        itens[existe.id] = itemAtual
+        itens[itens.findIndex(elemento => elemento.id === existe.id)] = itemAtual
+        //garantindo que esta pegando elemento correto e o atualizando
     } else {
-        itemAtual.id = itens.length
+        itemAtual.id = itens[itens.length -1] ? (itens[itens.length -1]).id +1 : 0 
+        //se nao tiver nada no array id igual 0 se ja tiver algo no id ultimo elemento o id +1
 
         criaElemento(itemAtual)
 
