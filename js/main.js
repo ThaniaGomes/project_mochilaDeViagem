@@ -50,9 +50,24 @@ function criaElemento(item) {
     
     novoItem.innerHTML += item.nome
 
+    novoItem.appendChild(botaoDeleta()) //adicionar a funcao como filho do elemento
     lista.appendChild(novoItem)
 }
 
 function atualizaElemento(item) {
     document.querySelector("[data-id='"+item.id+"']").innerHTML = item.quantidade
+}
+
+function botaoDeleta(){
+    const elementoBotao = document.createElement("button") //criar botao
+    elementoBotao.innerText = "X" // vai receber um x
+
+    elementoBotao.addEventListener("click", function(){ // responsavel por ouvir o click
+        deletaElemento(this.parentNode) // responsavel por identificar o elemento clicado e passar pai dele pra funcao
+    })
+    return elementoBotao
+}
+
+function deletaElemento(tag){ //funcao que vai deletar o elemento pai
+    tag.remove()
 }
